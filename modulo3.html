@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Desconto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora Desconto</h1>
+    <script>
+        const nome = "Maria";
+        const precoProduto = 200;
+        const percentualDesconto = 15;
+
+        const valorDesconto = precoProduto * (percentualDesconto / 100);
+        const precoFinal = precoProduto - valorDesconto;
+
+        const precoAcima100 = precoProduto > 100;
+        const descontoValido = percentualDesconto >= 0 && percentualDesconto <= 100;
+
+        console.log(`${nome}! O produto custa R$ ${precoProduto}`);
+        console.log(`Desconto de ${percentualDesconto}%: R$ ${valorDesconto}`);
+        console.log(`Preço final: R$ ${precoFinal}`);
+        console.log(`Preço acima de R$ 100? ${precoAcima100}`);
+        console.log(`Desconto valido? ${descontoValido}`);
+    </script>
+
+</body>
+</html>

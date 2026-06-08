@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+.page {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  min-height: 100vh;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f59e0b;
+  color: white;
+  padding: 16px 24px;
+}
+
+header h1 {
+  font-size: 1.4rem;
+}
+
+header nav {
+  display: flex;
+  gap: 16px;
+}
+
+header nav a {
+  color: white;
+  text-decoration: none;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background: #e0e7ff;
+  padding: 24px;
+}
+
+.sidebar h2 {
+  color: #f59e0b;
+  margin-bottom: 12px;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 8px;
+}
+
+.sidebar a {
+  color: #333;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  color: #f59e0b;
+}
+
+main {
+  grid-area: main;
+  padding: 24px;
+}
+
+main h2 {
+  margin-bottom: 16px;
+  color: #333;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  place-items: center;
+}
+
+.card h3 {
+  color: #f59e0b;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.9rem;
+}
+
+footer {
+  grid-area: footer;
+  background: #f59e0b;
+  color: white;
+  text-align: center;
+  padding: 16px;
+}

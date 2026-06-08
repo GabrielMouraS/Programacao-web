@@ -1,0 +1,227 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f4ff;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.app {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  width: 100%;
+  max-width: 560px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+h1 { color: #000000; font-size: 2rem; margin-bottom: 8px; }
+h2 { color: #000000; font-size: 1.6rem; margin-bottom: 16px; }
+
+p { color: #555; margin-bottom: 16px; }
+
+.btn {
+  background: #000000;
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn:hover { background: #000000; }
+
+/* Config */
+.config {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.config label {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.config select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.config select:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+/* Recorde */
+.recorde-box {
+  font-size: 0.95rem;
+  color: #000000;
+  font-weight: bold;
+  margin-bottom: 16px;
+  min-height: 20px;
+}
+
+.recorde-box.novo-recorde {
+  color: #16a34a;
+  font-size: 1.1rem;
+  animation: pulsar 0.5s ease 3;
+}
+
+@keyframes pulsar {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+/* Barra de progresso */
+.barra-progresso-fundo {
+  background: #e5e7eb;
+  border-radius: 8px;
+  height: 8px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.barra-progresso {
+  height: 100%;
+  background: #000000;
+  border-radius: 8px;
+  width: 0%;
+  transition: width 0.4s ease;
+}
+
+/* Status */
+.status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Timer */
+.timer-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.timer-anel {
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.timer-anel svg {
+  width: 64px;
+  height: 64px;
+  transform: rotate(-90deg);
+}
+
+.anel-fundo {
+  fill: none;
+  stroke: #e5e7eb;
+  stroke-width: 3;
+}
+
+.anel-frente {
+  fill: none;
+  stroke: #000000;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.9s linear, stroke 0.3s;
+}
+
+#textoTimer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #000000;
+  transition: color 0.3s;
+}
+
+/* Pergunta */
+.pergunta-box {
+  background: #f5f3ff;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.pergunta-box.entrar {
+  animation: entrar 0.35s ease forwards;
+}
+
+@keyframes entrar {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pergunta-box p {
+  font-size: 1.1rem;
+  color: #111;
+  margin: 0;
+  text-align: left;
+}
+
+/* Opções */
+.opcoes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.opcao {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.opcao:hover:not(:disabled) {
+  border-color: #000000;
+  background: #f5f3ff;
+}
+
+.opcao.correta { background: #dcfce7; border-color: #22c55e; color: #166534; }
+.opcao.errada  { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+.opcao:disabled { cursor: default; }
+
+/* Resultado */
+.placar {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #5ac9fc;
+  margin-bottom: 8px;
+}
+
+.mensagem {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

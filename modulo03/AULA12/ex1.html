@@ -13,7 +13,8 @@
     </style>
 </head>
 <body>
-    <h1>Calculadora Desconto</h1>
+    <h1>Calculadora de Desconto</h1>
+    <div id="resultado"></div>
     <script>
         const nome = "Maria";
         const precoProduto = 200;
@@ -30,6 +31,14 @@
         console.log(`Preço final: R$ ${precoFinal}`);
         console.log(`Preço acima de R$ 100? ${precoAcima100}`);
         console.log(`Desconto valido? ${descontoValido}`);
+
+        document.getElementById('resultado').innerHTML = `
+            <p>Olá, ${nome}! O produto custa <strong>R$ ${precoProduto}</strong></p>
+            <p>Desconto de ${percentualDesconto}%: <strong>R$ ${valorDesconto}</strong></p>
+            <p>Preço final: <strong>R$ ${precoFinal}</strong></p>
+            <p>Preço acima de R$ 100? <strong>${precoAcima100}</strong></p>
+            <p>Desconto válido? <strong>${descontoValido}</strong></p>
+        `;
     </script>
 
 </body>

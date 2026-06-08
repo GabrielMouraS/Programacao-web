@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsividade</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">MeuSite</div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Artigos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Design Responsivo</h1>
+    <p>Esta página se adapta a qualquer tamanho de tela.</p>
+  </section>
+
+  <main class="container">
+    <h2>Artigos</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Mobile First</h3>
+        <p>Desenvolva primeiro para telas pequenas, depois expanda.</p>
+      </div>
+      <div class="card">
+        <h3>Media Queries</h3>
+        <p>Aplique estilos diferentes conforme o tamanho da tela.</p>
+      </div>
+      <div class="card">
+        <h3>Imagens Responsivas</h3>
+        <p>Use max-width: 100% para imagens que se adaptam.</p>
+      </div>
+      <div class="card">
+        <h3>Unidades Relativas</h3>
+        <p>rem, em, vw, vh para tamanhos que escalam.</p>
+      </div>
+      <div class="card">
+        <h3>Flexbox e Grid</h3>
+        <p>Layouts que se reorganizam automaticamente.</p>
+      </div>
+      <div class="card">
+        <h3>Clamp()</h3>
+        <p>Tamanho de fonte fluido sem media queries.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>FATEC 2026 - Responsividade</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('aberto');
+    });
+  </script>
+</body>
+</html>

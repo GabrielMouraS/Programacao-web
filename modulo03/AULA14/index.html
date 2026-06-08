@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cards de Produtos - DOM</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: Arial, sans-serif; padding: 24px; background: #f5f5f5; }
+    h1 { color: #f43f5e; margin-bottom: 16px; }
+    .controles { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+    .btn { background: #f43f5e; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1rem; }
+    .btn:hover { background: #4f46e5; }
+    .btn-perigo { background: #ef4444; }
+    .btn-perigo:hover { background: #dc2626; }
+    .adicionar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+    .adicionar input { padding: 8px 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; }
+    #container { display: flex; flex-wrap: wrap; gap: 16px; }
+    .card { background: white; border: 1px solid #ddd; border-radius: 8px; padding: 16px; width: 200px; }
+    .card h3 { color: #f43f5e; margin-bottom: 4px; }
+    .card .preco { font-weight: bold; margin: 4px 0; }
+    .card .categoria { font-size: 0.85rem; color: #888; }
+    .card.oculto { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Cards de Produtos</h1>
+
+  <div class="controles">
+    <button class="btn" id="btnFiltrar">Mostrar só Eletrônicos</button>
+    <button class="btn btn-perigo" id="btnLimpar">Limpar Tudo</button>
+  </div>
+
+  <div class="adicionar">
+    <input type="text" id="nomeNovo" placeholder="Nome do produto" />
+    <input type="number" id="precoNovo" placeholder="Preço" />
+    <input type="text" id="categoriaNova" placeholder="Categoria" />
+    <button class="btn" id="btnAdicionar">Adicionar</button>
+  </div>
+
+  <div id="container"></div>
+
+  <script>
+    const produtos = [
+      { nome: 'Notebook', preco: 4500, categoria: 'Eletrônicos' },
+      { nome: 'Mouse', preco: 89, categoria: 'Eletrônicos' },
+      { nome: 'Cadeira Gamer', preco: 1200, categoria: 'Móveis' },
+      { nome: 'Teclado', preco: 250, categoria: 'Eletrônicos' },
+      { nome: 'Mesa', preco: 800, categoria: 'Móveis' },
+    ];
+
+    const container = document.querySelector('#container');
+
+    function criarCard(produto) {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.dataset.categoria = produto.categoria;
+      card.innerHTML = `
+        <h3>${produto.nome}</h3>
+        <p class="preco">R$ ${produto.preco.toLocaleString('pt-BR')}</p>
+        <p class="categoria">${produto.categoria}</p>
+      `;
+      return card;
+    }
+
+    function renderizarProdutos(lista) {
+      container.innerHTML = '';
+      lista.forEach(p => container.appendChild(criarCard(p)));
+    }
+
+    renderizarProdutos(produtos);
+
+    let filtroAtivo = false;
+    document.getElementById('btnFiltrar').addEventListener('click', () => {
+      filtroAtivo = !filtroAtivo;
+      const cards = container.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.classList.toggle('oculto', filtroAtivo && card.dataset.categoria !== 'Eletrônicos');
+      });
+      document.getElementById('btnFiltrar').textContent = filtroAtivo ? 'Mostrar Todos' : 'Mostrar só Eletrônicos';
+    });
+
+    document.getElementById('btnLimpar').addEventListener('click', () => {
+      container.innerHTML = '';
+      filtroAtivo = false;
+      document.getElementById('btnFiltrar').textContent = 'Mostrar só Eletrônicos';
+    });
+
+    document.getElementById('btnAdicionar').addEventListener('click', () => {
+      const nome = document.getElementById('nomeNovo').value.trim();
+      const preco = parseFloat(document.getElementById('precoNovo').value);
+      const categoria = document.getElementById('categoriaNova').value.trim();
+      if (!nome || isNaN(preco) || !categoria) return;
+      const novoProduto = { nome, preco, categoria };
+      produtos.push(novoProduto);
+      container.appendChild(criarCard(novoProduto));
+      document.getElementById('nomeNovo').value = '';
+      document.getElementById('precoNovo').value = '';
+      document.getElementById('categoriaNova').value = '';
+    });
+  </script>
+</body>
+</html>

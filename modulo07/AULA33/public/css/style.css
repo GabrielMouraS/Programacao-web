@@ -1,0 +1,94 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+header {
+  background: #f97316;
+  color: white;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+#areaAuth { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+
+#areaAuth input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.btn {
+  background: white;
+  color: #f97316;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: bold;
+}
+
+.btn:hover { background: #e0e7ff; }
+.btn-sec { background: #e0e7ff; }
+.btn-perigo { background: #fecaca; color: #dc2626; }
+.btn-perigo:hover { background: #fee2e2; }
+
+main { max-width: 900px; margin: 24px auto; padding: 0 16px; }
+
+#secaoFormProduto {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  border: 1px solid #ddd;
+}
+
+#secaoFormProduto h2 { color: #f97316; margin-bottom: 12px; }
+
+#formProduto { display: flex; gap: 8px; flex-wrap: wrap; }
+
+#formProduto input, #formProduto select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  flex: 1;
+  min-width: 140px;
+}
+
+#formProduto .btn { background: #f97316; color: white; }
+#formProduto .btn:hover { background: #4f46e5; }
+
+.filtros { display: flex; gap: 8px; margin-bottom: 16px; }
+
+.filtros select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.filtros .btn { background: #f97316; color: white; }
+.filtros .btn:hover { background: #4f46e5; }
+
+#listaProdutos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+
+.card-produto {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.card-produto h3 { color: #f97316; margin-bottom: 4px; }
+.card-produto .preco { font-weight: bold; font-size: 1.1rem; margin: 4px 0; }
+.card-produto .cat { font-size: 0.85rem; color: #888; margin-bottom: 12px; }
+.card-produto .btn-del { background: #ef4444; color: white; border: none; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 0.9rem; }
+.card-produto .btn-del:hover { background: #dc2626; }
+
+.mensagem { text-align: center; color: #888; padding: 40px; }

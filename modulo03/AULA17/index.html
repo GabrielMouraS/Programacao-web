@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quiz Interativo</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <section id="tela-inicio">
+      <h1>Quiz de Conhecimentos</h1>
+      <p>Escolha a categoria e dificuldade para começar.</p>
+
+      <div class="config">
+        <label for="categoria">Categoria</label>
+        <select id="categoria">
+          <option value="">Aleatória</option>
+          <option value="9">Conhecimentos Gerais</option>
+          <option value="18">Computação</option>
+          <option value="19">Matemática</option>
+          <option value="22">Geografia</option>
+          <option value="23">História</option>
+          <option value="21">Esportes</option>
+          <option value="17">Ciências da Natureza</option>
+        </select>
+
+        <label for="dificuldade">Dificuldade</label>
+        <select id="dificuldade">
+          <option value="">Aleatória</option>
+          <option value="easy">Fácil</option>
+          <option value="medium">Médio</option>
+          <option value="hard">Difícil</option>
+        </select>
+      </div>
+
+      <div id="recorde-inicio" class="recorde-box"></div>
+
+      <button id="btnIniciar" class="btn">Iniciar Quiz</button>
+    </section>
+
+    <section id="tela-quiz" hidden>
+      <div class="barra-progresso-fundo">
+        <div class="barra-progresso" id="barraProgresso"></div>
+      </div>
+
+      <div class="status">
+        <span id="numeroPergunta">Pergunta 1 / 10</span>
+        <span id="pontuacao">Pontos: 0</span>
+      </div>
+
+      <div class="timer-box">
+        <div class="timer-anel">
+          <svg viewBox="0 0 36 36">
+            <path class="anel-fundo" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+            <path class="anel-frente" id="anelTimer" stroke-dasharray="100, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          </svg>
+          <span id="textoTimer">15</span>
+        </div>
+      </div>
+
+      <div class="pergunta-box" id="perguntaBox">
+        <p id="textoPergunta"></p>
+      </div>
+
+      <div id="opcoes" class="opcoes"></div>
+    </section>
+
+    <section id="tela-resultado" hidden>
+      <h2>Resultado Final</h2>
+      <p id="placar" class="placar"></p>
+      <p id="mensagem" class="mensagem"></p>
+      <div id="recorde-resultado" class="recorde-box"></div>
+      <button id="btnReiniciar" class="btn">Jogar Novamente</button>
+    </section>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

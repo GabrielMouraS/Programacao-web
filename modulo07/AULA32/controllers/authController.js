@@ -1,0 +1,30 @@
+const jwt = require('jsonwebtoken');
+const Usuario = require('../models/Usuario');
+
+async function registrar(req, res, next) {
+  try {
+    const { nome, email, senha } = req.body;
+    const usuario = new Usuario({ nome, email, senha });
+    await usuario.save();
+    const token = jwt.sign({ id: usuario._id, role: usuario.role }, process.env.JWT_SECRET, { expiresIn: '24h' });
+    res.status(201).json({ token, usuario: { id: usuario._id, nome, email } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function login(req, res, next) {
+  try {
+    const { email, senha } = req.body;
+    const usuario = await Usuario.findOne({ email });
+    if (!usuario || !(await usuario.compararSenha(senha))) {
+      return res.status(401).json({ erro: 'Credenciais inválidas' });
+    }
+    const token = jwt.sign({ id: usuario._id, role: usuario.role }, process.env.JWT_SECRET, { expiresIn: '24h' });
+    res.json({ token, usuario: { id: usuario._id, nome: usuario.nome, email } });
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports = { registrar, login };

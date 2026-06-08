@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokédex</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Pokédex</h1>
+  </header>
+  <main>
+    <div class="busca">
+      <input type="text" id="inputPokemon" placeholder="Nome ou número do Pokémon..." />
+      <button id="btnBuscar" class="btn">Buscar</button>
+    </div>
+    <div class="nav-pokemon">
+      <button id="btnAnterior" class="btn btn-nav">&#8592; Anterior</button>
+      <button id="btnProximo" class="btn btn-nav">Próximo &#8594;</button>
+    </div>
+    <div id="container"></div>
+  </main>
+
+  <script>
+    const inputPokemon = document.getElementById('inputPokemon');
+    const container = document.getElementById('container');
+    let idAtual = 1;
+
+    const cores = {
+      fire: '#f97316', water: '#3b82f6', grass: '#22c55e', electric: '#eab308',
+      psychic: '#ec4899', ice: '#06b6d4', dragon: '#7c3aed', dark: '#1f2937',
+      fighting: '#b45309', poison: '#9333ea', ground: '#d97706', flying: '#7dd3fc',
+      bug: '#84cc16', rock: '#78716c', ghost: '#6d28d9', steel: '#94a3b8',
+      normal: '#9ca3af', fairy: '#f9a8d4',
+    };
+
+    async function buscarPokemon(identificador) {
+      container.innerHTML = '<p class="carregando">Carregando...</p>';
+      try {
+        const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${identificador}`);
+        if (!res.ok) throw new Error('Pokémon não encontrado');
+        const dados = await res.json();
+        idAtual = dados.id;
+        exibirPokemon(dados);
+      } catch (erro) {
+        container.innerHTML = `<p class="erro">${erro.message}</p>`;
+      }
+    }
+
+    function exibirPokemon(dados) {
+      const tipos = dados.types.map(t => t.type.name);
+      const corFundo = cores[tipos[0]] || '#e11d48';
+      const stats = dados.stats.map(s => `
+        <div class="stat">
+          <span>${s.stat.name}</span>
+          <div class="barra-fundo">
+            <div class="barra" style="width:${Math.min(s.base_stat, 150) / 150 * 100}%; background:${corFundo}"></div>
+          </div>
+          <span>${s.base_stat}</span>
+        </div>
+      `).join('');
+
+      container.innerHTML = `
+        <div class="card" style="border-color: ${corFundo}">
+          <div class="card-topo" style="background: ${corFundo}">
+            <img src="${dados.sprites.other['official-artwork'].front_default || dados.sprites.front_default}" alt="${dados.name}" />
+          </div>
+          <div class="card-corpo">
+            <p class="numero">#${String(dados.id).padStart(3, '0')}</p>
+            <h2>${dados.name.charAt(0).toUpperCase() + dados.name.slice(1)}</h2>
+            <div class="tipos">
+              ${tipos.map(t => `<span class="tipo" style="background:${cores[t] || '#e11d48'}">${t}</span>`).join('')}
+            </div>
+            <div class="stats">${stats}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    document.getElementById('btnBuscar').addEventListener('click', () => {
+      const val = inputPokemon.value.trim().toLowerCase();
+      if (val) buscarPokemon(val);
+    });
+
+    inputPokemon.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const val = inputPokemon.value.trim().toLowerCase();
+        if (val) buscarPokemon(val);
+      }
+    });
+
+    document.getElementById('btnAnterior').addEventListener('click', () => {
+      if (idAtual > 1) buscarPokemon(idAtual - 1);
+    });
+
+    document.getElementById('btnProximo').addEventListener('click', () => {
+      buscarPokemon(idAtual + 1);
+    });
+
+    buscarPokemon(1);
+  </script>
+</body>
+</html>

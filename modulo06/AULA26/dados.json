@@ -1,0 +1,5 @@
+[
+  { "nome": "Ana", "curso": "ADS", "nota": 9.5 },
+  { "nome": "Bruno", "curso": "Redes", "nota": 8.0 },
+  { "nome": "Carlos", "curso": "ADS", "nota": 7.5 }
+]

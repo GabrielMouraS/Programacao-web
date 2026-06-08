@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão de Produtos</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Gestão de Produtos</h1>
+    <div id="areaAuth">
+      <div id="formLogin">
+        <input type="email" id="email" placeholder="E-mail" />
+        <input type="password" id="senha" placeholder="Senha" />
+        <button id="btnLogin" class="btn">Entrar</button>
+        <button id="btnRegistrar" class="btn btn-sec">Registrar</button>
+      </div>
+      <div id="usuarioLogado" hidden>
+        <span id="nomeUsuario"></span>
+        <button id="btnLogout" class="btn btn-perigo">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="secaoFormProduto" hidden>
+      <h2>Adicionar Produto</h2>
+      <form id="formProduto">
+        <input type="text" id="nomeProduto" placeholder="Nome do produto" required />
+        <input type="number" id="precoProduto" placeholder="Preço" step="0.01" required />
+        <select id="categoriaProduto">
+          <option value="Eletrônicos">Eletrônicos</option>
+          <option value="Móveis">Móveis</option>
+          <option value="Roupas">Roupas</option>
+          <option value="Alimentos">Alimentos</option>
+          <option value="Outros">Outros</option>
+        </select>
+        <button type="submit" class="btn">Adicionar</button>
+      </form>
+    </section>
+
+    <section>
+      <div class="filtros">
+        <select id="filtroCat">
+          <option value="">Todas as categorias</option>
+          <option value="Eletrônicos">Eletrônicos</option>
+          <option value="Móveis">Móveis</option>
+          <option value="Roupas">Roupas</option>
+          <option value="Alimentos">Alimentos</option>
+          <option value="Outros">Outros</option>
+        </select>
+        <button id="btnFiltrar" class="btn">Filtrar</button>
+      </div>
+      <div id="listaProdutos"></div>
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

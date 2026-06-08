@@ -1,14 +1,380 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exercícios FATEC - Programação Web</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #141010;
+      color: #f0f0f0;
+    }
+
+    header {
+      background: #21b9ff;
+      color: white;
+      padding: 32px 24px;
+      text-align: center;
+    }
+
+    header h1 { font-size: 2rem; margin-bottom: 8px; }
+    header p { opacity: 0.9; font-size: 1.1rem; }
+
+    main {
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 0 16px;
+    }
+
+    .modulo {
+      background: #111;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      border: 1px solid #333;
+    }
+
+    .modulo-header {
+      background: #21b9ff;
+      color: white;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modulo-num {
+      background: rgba(255,255,255,0.25);
+      border-radius: 8px;
+      padding: 4px 12px;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .modulo-titulo { font-size: 1.1rem; font-weight: bold; }
+
+    .aulas { padding: 8px 0; }
+
+    .aula {
+      display: flex;
+      align-items: center;
+      padding: 12px 20px;
+      border-bottom: 1px solid #222;
+      gap: 12px;
+    }
+
+    .aula:last-child { border-bottom: none; }
+
+    .aula-num {
+      font-size: 0.9rem;
+      color: #aaa;
+      flex: 1;
+    }
+
+    .aula-nome { display: none; }
+
+    .aula a {
+      background: #21b9ff;
+      color: white;
+      text-decoration: none;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .aula a:hover { background: #4f46e5; }
+
+    .aula a.externo { background: #059669; }
+    .aula a.externo:hover { background: #047857; }
+
+    .aula a.codigo { background: #7c3aed; }
+    .aula a.codigo:hover { background: #6d28d9; }
+
+    .badge-feito {
+      background: #dcfce7;
+      color: #166534;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    .tag-backend {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    footer {
+      background: #21b9ff;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 1.4rem; }
+      .aula { flex-wrap: wrap; }
+    }
+  </style>
 </head>
 <body>
-    
+  <header>
+    <h1>Exercícios - Programação Web</h1>
+    <p>FATEC 2026 — Gabriel Moura</p>
+  </header>
 
-    modulo 2 - https://gabrielmouras.github.io/Portifolio2/
-    modulo 3 - https://gabrielmouras.github.io/
+  <main>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 2</span>
+        <span class="modulo-titulo">HTML &amp; CSS</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aula 02</span>
+          <span class="aula-nome">Introdução à Web e HTML</span>
+          <a href="modulo02/AULA02/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 03</span>
+          <span class="aula-nome">Textos, listas, links, imagens e tabelas</span>
+          <a href="modulo02/AULA03/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 04</span>
+          <span class="aula-nome">Formulários HTML</span>
+          <a href="modulo02/AULA04/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 05</span>
+          <span class="aula-nome">Introdução ao CSS</span>
+          <a href="modulo02/AULA05/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 06</span>
+          <span class="aula-nome">Box Model, Display e Posicionamento</span>
+          <a href="modulo02/AULA06/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 07</span>
+          <span class="aula-nome">Flexbox</span>
+          <a href="modulo02/AULA07/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 08</span>
+          <span class="aula-nome">CSS Grid</span>
+          <a href="modulo02/AULA08/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 09</span>
+          <span class="aula-nome">Responsividade</span>
+          <a href="modulo02/AULA09/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 10</span>
+          <span class="aula-nome">Animações e Transições CSS</span>
+          <a href="modulo02/AULA10/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 11</span>
+          <span class="aula-nome">Projeto: Portfólio Landing Page</span>
+          <a href="https://gabrielmouras.github.io/Portifolio2/" class="externo" target="_blank">Ver</a>
+          <a href="https://github.com/GabrielMouraS/Portifolio2" class="externo" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 3</span>
+        <span class="modulo-titulo">JavaScript</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aula 12</span>
+          <span class="aula-nome">Fundamentos JavaScript — Calculadora de Desconto</span>
+          <a href="modulo03/AULA12/ex1.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 13</span>
+          <span class="aula-nome">Controle, Funções, Arrays e Objetos — Gerenciador de Alunos</span>
+          <a href="modulo03/AULA13/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 14</span>
+          <span class="aula-nome">DOM — Cards de Produtos</span>
+          <a href="modulo03/AULA14/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 15</span>
+          <span class="aula-nome">Eventos — Lista de Tarefas</span>
+          <a href="modulo03/AULA15/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 16</span>
+          <span class="aula-nome">Fetch API — Pokédex</span>
+          <a href="modulo03/AULA16/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 17</span>
+          <span class="aula-nome">Projeto: Quiz Interativo</span>
+          <a href="modulo03/AULA17/index.html">Ver</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 4</span>
+        <span class="modulo-titulo">Git &amp; GitHub</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aula 18</span>
+          <span class="aula-nome">Conceitos de Versionamento — Primeiro Repositório</span>
+          <a href="modulo04/AULA18/index.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 19</span>
+          <span class="aula-nome">Commits, Branches e Merge</span>
+          <a href="modulo04/AULA19/sobre.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 20</span>
+          <span class="aula-nome">GitHub — .gitignore e README</span>
+          <span class="badge-feito">Arquivos de config</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 21</span>
+          <span class="aula-nome">GitHub Pages — Deploy dos projetos</span>
+          <span class="badge-feito">Esta página</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 5</span>
+        <span class="modulo-titulo">Arquitetura Web &amp; Deploy</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aula 22</span>
+          <span class="aula-nome">Como Funciona a Web — HTTP, DNS, Cliente-Servidor</span>
+          <span class="badge-feito">Teórico</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 23</span>
+          <span class="aula-nome">Servidores Web e Hospedagem</span>
+          <span class="badge-feito">Teórico</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 24</span>
+          <span class="aula-nome">Deploy: Vercel — Função Serverless</span>
+          <a href="modulo05/AULA24/api/hello.js" class="codigo">Ver código</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 25</span>
+          <span class="aula-nome">Domínios, SSL e Segurança</span>
+          <span class="badge-feito">Teórico</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 6</span>
+        <span class="modulo-titulo">Back-End com Node.js</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aula 26</span>
+          <span class="aula-nome">Introdução ao Node.js — Módulos, fs e servidor HTTP</span>
+          <span class="tag-backend">Node.js — node app.js / node server.js</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 27</span>
+          <span class="aula-nome">Express.js — API CRUD de Tarefas</span>
+          <span class="tag-backend">Node.js — npm run dev</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 28</span>
+          <span class="aula-nome">MongoDB Atlas — CRUD no banco</span>
+          <span class="badge-feito">Prático no Atlas</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 29</span>
+          <span class="aula-nome">Express + MongoDB — API de Alunos com Mongoose</span>
+          <span class="tag-backend">Node.js — npm run dev</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 30</span>
+          <span class="aula-nome">Autenticação JWT</span>
+          <span class="tag-backend">Node.js — npm run dev</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 7</span>
+        <span class="modulo-titulo">APIs REST</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aula 31</span>
+          <span class="aula-nome">Conceitos REST — Testando APIs públicas</span>
+          <a href="modulo07/AULA31/ex1.html">Ver</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 32</span>
+          <span class="aula-nome">API RESTful Completa — Produtos com Auth</span>
+          <span class="tag-backend">Node.js — npm run dev</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 33</span>
+          <span class="aula-nome">Integração Full-Stack — Frontend consumindo API</span>
+          <span class="tag-backend">Node.js — npm run dev</span>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Aula 34</span>
+          <span class="aula-nome">Documentação da API — README completo</span>
+          <a href="modulo07/AULA34/README.md" class="codigo">Ver README</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="modulo">
+      <div class="modulo-header">
+        <span class="modulo-num">Módulo 8</span>
+        <span class="modulo-titulo">Projeto Integrador</span>
+      </div>
+      <div class="aulas">
+        <div class="aula">
+          <span class="aula-num">Aulas 35–40</span>
+          <span class="aula-nome">Gestor Financeiro — Projeto completo em produção</span>
+          <a href="https://gestor-financeiro-pink-one.vercel.app/" class="externo" target="_blank">Ver no Vercel</a>
+        </div>
+        <div class="aula">
+          <span class="aula-num">Repositório</span>
+          <span class="aula-nome">Código fonte do projeto integrador</span>
+          <a href="https://github.com/GabrielMouraS/gestor-financeiro" class="externo" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>FATEC 2026 — Programação Web — Gabriel Moura</p>
+  </footer>
 </body>
 </html>
